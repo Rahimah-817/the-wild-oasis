@@ -1,43 +1,32 @@
-import styled from 'styled-components';
-import GlobalStyles from './styles/GlobalStyles';
-import Button from './ui/Button';
-import Input from './ui/Input';
-import Heading from './ui/Heading';
-import Row from './ui/Row';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const StyledApp = styled.main`
-  padding: 20px;
-`;
+import GlobalStyles from './styles/GlobalStyles';
+import Dashborad from './pages/Dashboard';
+import Bookings from './pages/Bookings';
+import Cobins from './pages/Cabins';
+import Users from './pages/Users';
+import Settings from './pages/Settings';
+import Account from './pages/Account';
+import Login from './pages/Login';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <StyledApp>
-        <Row>
-          <Row type='horizontal'>
-            <Heading as='h1'>The Wild Oasis</Heading>
-            <div>
-              <Heading as='h2'>Check in and out</Heading>
-              <Button onClick={() => alert('check in')}>Check in</Button>
-              <Button
-                variation='secondary'
-                size='small'
-                onClick={() => alert('check in')}>
-                Check out
-              </Button>
-            </div>
-          </Row>
-
-          <Row>
-            <Heading as='h3'>Form</Heading>
-            <form>
-              <Input type='number' placeholder='Number of guests...' />
-              <Input type='number' placeholder='Number of guests...' />
-            </form>
-          </Row>
-        </Row>
-      </StyledApp>
+      <BrowserRouter>
+        <Routes>
+          <Route index replace to='dashboard' />
+          <Route path='dashboard' element={<Dashborad />} />
+          <Route path='booking' element={<Bookings />} />
+          <Route path='cobin' element={<Cobins />} />
+          <Route path='user' element={<Users />} />
+          <Route path='setting' element={<Settings />} />
+          <Route path='account' element={<Account />} />
+          <Route path='login' element={<Login />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
