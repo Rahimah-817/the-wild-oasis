@@ -20,10 +20,10 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index replace to='dashboard' />
             <Route path='dashboard' element={<Dashborad />} />
-            <Route path='booking' element={<Bookings />} />
-            <Route path='cobin' element={<Cobins />} />
-            <Route path='user' element={<Users />} />
-            <Route path='setting' element={<Settings />} />
+            <Route path='bookings' element={<Bookings />} />
+            <Route path='cobins' element={<Cobins />} />
+            <Route path='users' element={<Users />} />
+            <Route path='settings' element={<Settings />} />
             <Route path='account' element={<Account />} />
           </Route>
           
