@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+
 import Spinner from '../../ui/Spinner';
 import CabinRow from './CabinRow';
-import { useCabin } from './useCobin';
+import { useCabins } from './useCobin';
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -28,7 +29,7 @@ const TableHeader = styled.header`
 `;
 
 function CabinTable() {
-  const { isLoading, cabins } = useCabin();
+  const { isLoading, cabins } = useCabins();
 
   if (isLoading) return <Spinner />;
 
@@ -43,7 +44,7 @@ function CabinTable() {
         <div></div>
       </TableHeader>
       {cabins.map((cabin) => (
-        <CabinRow key={cabin.id} cabin={cabin} />
+        <CabinRow cabin={cabin} key={cabin.id} />
       ))}
     </Table>
   );
